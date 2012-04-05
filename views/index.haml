@@ -1,0 +1,41 @@
+!!!
+%head
+  %meta{'http-equiv' => 'Content-Type', :content => 'text/html'}
+  %title #{@title}
+
+
+%h2 Welcome to Shoe Site!
+
+%form{:method=>'post', :action=>"/"}
+  %h3{:id=>'form_heading'} Pre-Order your shoes today
+
+  %dl
+    %dt
+      %label{:for => 'release_month'} Pre-Order Month
+    %dd
+      %select#release_month{:name=>'release_month'}
+        %option{:value=>''} Select...
+        %option{:value=>'0'} January
+        %option{:value=>'1'} February
+        %option{:value=>'2'} March
+        %option{:value=>'3'} April
+        %option{:value=>'4'} May
+        %option{:value=>'5'} June
+        %option{:value=>'6'} July
+        %option{:value=>'7'} August
+        %option{:value=>'8'} September
+        %option{:value=>'9'} October
+        %option{:value=>'10'} November
+        %option{:value=>'11'} December
+        %option{:value=>'12'} More Than 1 Year
+
+  %dl
+    %dt
+      %label{:for => 'promotional_code'} Promotional Code
+    %dd
+      %input#promotional_code{:type => 'text', :maxlength => '255', :name => 'promotional_code'}/
+
+  %dl
+    %dt
+    %dd
+      %input{:type=>'submit', :value=>'Search'}
