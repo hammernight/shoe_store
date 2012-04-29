@@ -8,6 +8,8 @@ gem 'sinatra-activerecord', :require => 'sinatra/activerecord'
 gem 'cv-user-agent'
 gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'shotgun'
+gem 'lorem'
+gem 'rack-flash3'
 
 
 group :development do
@@ -25,4 +27,6 @@ group :test do
   gem 'ZenTest'
   gem 'autotest-fsevent'
   gem 'autotest-growl'
+  gem 'cuke_puke'
+  gem 'factory_girl'
 end

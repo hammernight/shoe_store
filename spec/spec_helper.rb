@@ -7,6 +7,7 @@ require 'rspec'
 require 'mocha'
 require 'rack/test'
 require 'sinatra'
+require 'webrat'
 
 set :environment, :test
 
@@ -17,8 +18,14 @@ $LOAD_PATH.unshift lib_path unless $LOAD_PATH.include?(lib_path)
 
 Dir[File.join(TAZA_ROOT, "spec/support/**/*.rb")].each {|f| require f }
 
+Webrat.configure do |config|
+  config.mode = :rack
+end
+
 RSpec.configure do |config|
   config.include Rack::Test::Methods
+  config.include Webrat::Methods
+  config.include Webrat::Matchers
   config.mock_with :mocha
 end
 
