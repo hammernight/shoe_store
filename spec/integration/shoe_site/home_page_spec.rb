@@ -14,7 +14,7 @@ describe "Home Page should launch" do
     end
 
     it "should have the right page title when loaded in the browser" do
-      shoe_site.browser.title.should == "Welcome to the Shoe Site"
+      shoe_site.browser.title.should == "Shoe Site: Welcome to the Shoe Site"
     end
   end
 
