@@ -10,5 +10,6 @@ module ShoeSite
     element(:promo_code) { browser.text_field(:id => 'promotional_code')}
     element(:submit) { browser.button(:value => 'Search')}
 
+
   end
 end
