@@ -2,7 +2,7 @@ Feature: I should see the home page
 
   Scenario: home page loads properly
     When I visit shoe site
-    Then the title should say "Welcome to the Shoe Site"
+    Then the title should say "Shoe Site: Welcome to the Shoe Site"
 
   Scenario: home page Home Page preorder select ist
     Given I visit shoe site
