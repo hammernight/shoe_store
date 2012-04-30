@@ -6,5 +6,5 @@ Feature:
 
 Scenario: Pick one month
   Given I visit shoe site
-  When I view "January" page
-  Then I should see the shoes that are being released on that month
+  When I pick my preorder month "July"
+  Then I should see 3 shoes are being released in "July"

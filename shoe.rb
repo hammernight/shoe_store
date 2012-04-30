@@ -44,12 +44,19 @@ post '/results' do
     flash[:notice] = "Please Select a Valid Month"
     redirect '/'
   elsif params[:post][:release_month] == "July"
-    flash[:notice] = "Success"
     @shoes = {:one => "first item", :two => "second item", :three => "third item"}
   else
     @title = "#{params[:post][:release_month]}"
     params[:post].inspect
   end
-
+  @title = "#{params[:post][:release_month]}"
   haml :results
+end
+
+class MonthlyRelease
+
+   def get_release_month(month)
+
+   end
+
 end

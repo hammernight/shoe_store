@@ -28,3 +28,8 @@ end
 Then /^I should be on the home page$/ do
   @site.browser.url.should == 'http://localhost:9393/'
 end
+
+Then /^I should see (\d+) shoes are being released in "([^"]*)"$/ do |number, month_name|
+  @site.results_page.results_list_items.count.should == number.to_i
+  @site.results_page.heading.text.should include(month_name)
+end
