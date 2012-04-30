@@ -9,7 +9,7 @@ gem 'cv-user-agent'
 gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'shotgun'
 gem 'lorem'
-gem 'rack-flash3'
+gem 'sinatra-flash'
 
 
 group :development do

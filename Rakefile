@@ -3,6 +3,8 @@
 require 'rubygems'
 require 'bundler/setup'
 require 'taza/tasks'
+require File.expand_path('../shoe.rb', __FILE__)
+require 'sinatra/activerecord/rake'
 
 Taza::Rake::Tasks.new do |t|
   file_hole = FileUtils.mkdir_p "artifacts/#{Time.now.to_i}"

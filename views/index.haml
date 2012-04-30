@@ -1,9 +1,10 @@
 %h2 Welcome to Shoe Site!
 
-%p #{@notice}
-
-%form{:action=>"/", :method=>'post'}
+%form{:action=>"/results", :method=>'post'}
   %h3{:id=>'form_heading'} Pre-Order your shoes today
+
+  - unless @message.nil?
+    %p #{@message}
 
   %dl
     %dt

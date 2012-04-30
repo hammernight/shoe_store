@@ -1,6 +1,8 @@
+%h2 New Releases for #{@title}
 
 - unless @message.nil?
   %p= @message
 
-%h2 New Releases for #{@title}
-
+%ul#shoe_list
+  - @shoes.each do |key, value|
+    %li{:id => "#{key}" }= "#{value}"

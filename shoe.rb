@@ -6,7 +6,8 @@ require 'active_record'
 
 require 'sinatra'
 require 'sinatra/activerecord'
-require 'rack-flash'
+require 'sinatra/flash'
+
 
 require 'haml'
 require 'sass'
@@ -15,7 +16,6 @@ require 'user-agent'
 
 set :haml, {:format => :html5}
 set :database, ENV['DATABASE_URL'] ? ENV['DATABASE_URL'] : 'sqlite://shoes.db'
-
 
 #Models
 class Issue < ActiveRecord::Base
@@ -29,8 +29,7 @@ configure do
   set :public_folder, "#{File.dirname(__FILE__)}/public"
 end
 
-set :sessions, :true
-use Rack::Flash
+enable :sessions
 
 get '/' do
   @title = 'Welcome to the Shoe Site'
@@ -38,13 +37,19 @@ get '/' do
   haml :index
 end
 
-post '/' do
+post '/results' do
+  @shoes = {}
   if params[:post][:release_month] == "Select Month"
     #take this out and add achievement
-    @message = "Please Select a Valid Month"
+    flash[:notice] = "Please Select a Valid Month"
+    redirect '/'
+  elsif params[:post][:release_month] == "July"
+    flash[:notice] = "Success"
+    @shoes = {:one => "first item", :two => "second item", :three => "third item"}
   else
-  @title = "#{params[:post][:release_month]}"
-  params[:post].inspect
+    @title = "#{params[:post][:release_month]}"
+    params[:post].inspect
   end
+
   haml :results
 end

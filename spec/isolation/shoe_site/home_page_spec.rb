@@ -25,11 +25,12 @@ describe "Home Page should launch" do
     xit "should let me submit a month" do
 
     end
+
     it "should have a form you can post" do
       last_response.body.should have_selector("form", :method => 'post')
     end
 
-    it "should have a select list with the months of the year" do
+    xit "should have a select list with the months of the year" do
       options = []
       html = last_response.body
 
@@ -55,11 +56,23 @@ describe "Home Page should launch" do
     end
 
     it "should not show the 0 on the results page" do
-
       click_button "Search"
       visit response.location if response.location
       last_response.body.should have_selector("h2")
       last_response.body.should_not include("<h2>New Releases for 0</h2>")
+    end
+
+    it "should show me a list for shoes in july" do
+      select "July"
+      click_button "Search"
+      last_response.body.should have_selector("ul", :id => "shoe_list")
+      last_response.body.should include("<li id='three'>third item</li>")
+    end
+
+    it "should show the flash message when no month is selected" do
+      click_button "Search"
+      visit response.location if response.location
+      last_response.body.should include("<div class='flash notice'>Please Select a Valid Month</div>")
     end
 
   end
