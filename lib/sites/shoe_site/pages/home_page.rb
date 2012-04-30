@@ -8,8 +8,7 @@ module ShoeSite
     element(:heading) { browser.h3(:id => 'form_heading')}
     element(:release_month) { browser.select(:id => 'release_month')}
     element(:promo_code) { browser.text_field(:id => 'promotional_code')}
-    element(:submit) { browser.button(:value => 'Search')}
-
+    element(:search) { browser.button(:id => 'search_button')}
 
   end
 end

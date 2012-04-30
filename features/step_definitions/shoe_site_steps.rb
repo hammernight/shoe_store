@@ -9,8 +9,22 @@ end
 
 When /^I pick my preorder month "([^"]*)"$/ do |month|
   @site.home_page.release_month.select month
+  @site.home_page.search.click
 end
 
 Then /^I should be able to see a list of shoes being released that month$/ do
-  pending # express the regexp above with the code you wish you had
+  @site.results_page.results_list.should exist
+end
+
+When /^I perform the search without selecting a month$/ do
+  @site.home_page.search.click
+end
+
+Then /^I should see a warning message "([^"]*)"$/ do |message|
+  @site.partials.alerts.should exist
+  @site.partials.alerts.text.should == message
+end
+
+Then /^I should be on the home page$/ do
+  @site.browser.url.should == 'http://localhost:9393/'
 end
