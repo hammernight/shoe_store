@@ -1,10 +1,10 @@
 When /^I visit shoe site$/ do
   #need to do something here later :/
- @site.browser.title
+  @site.browser.title
 end
 
 Then /^the title should say "([^"]*)"$/ do |title|
- @site.home_page.page_title.should == title
+  @site.home_page.page_title.should == title
 end
 
 When /^I pick my preorder month "([^"]*)"$/ do |month|
@@ -32,4 +32,13 @@ end
 Then /^I should see (\d+) shoes are being released in "([^"]*)"$/ do |number, month_name|
   @site.results_page.results_list_items.count.should == number.to_i
   @site.results_page.heading.text.should include(month_name)
+end
+
+Then /^I should (not )?the "([^"]*)" in the title$/ do |toggle, month_name|
+  if toggle == "not "
+    @site.results_page.title.should_not include(month_name)
+  else
+    @site.results_page.title.should include(month_name)
+  end
+
 end
