@@ -29,4 +29,7 @@ group :test do
   gem 'autotest-growl'
   gem 'cuke_puke'
   gem 'factory_girl'
+  gem 'capybara'
+  gem 'domino'
+  gem 'domino_rspec', :git => 'git@github.com:ngauthier/domino_rspec.git'
 end
