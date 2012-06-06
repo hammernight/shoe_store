@@ -1,0 +1,194 @@
+GIT
+  remote: git@github.com:hammernight/taza.git
+  revision: 8a44bf91d7a7a3120e19b1d84e5d60416858e1ee
+  specs:
+    taza (0.9.1.2)
+      Selenium (~> 1.1.14)
+      activesupport (~> 3.1.0)
+      firewatir (~> 1.9.4)
+      mocha (~> 0.9.3)
+      rake (~> 0.9.2)
+      rspec (~> 2.6)
+      rubigen (~> 1.5.6)
+      user-choices (~> 1.1.6.1)
+      watir-webdriver (~> 0.4)
+
+GIT
+  remote: git@github.com:ngauthier/domino_rspec.git
+  revision: 308ef333e2a78e32e4012e56c755fb298e626475
+  specs:
+    domino_rspec (0.0.1)
+      sinatra
+
+GEM
+  remote: http://rubygems.org/
+  specs:
+    Selenium (1.1.14)
+    ZenTest (4.8.1)
+    activemodel (3.1.5)
+      activesupport (= 3.1.5)
+      builder (~> 3.0.0)
+      i18n (~> 0.6)
+    activerecord (3.1.5)
+      activemodel (= 3.1.5)
+      activesupport (= 3.1.5)
+      arel (~> 2.2.3)
+      tzinfo (~> 0.3.29)
+    activesupport (3.1.5)
+      multi_json (>= 1.0, < 1.3)
+    addressable (2.2.8)
+    arel (2.2.3)
+    autotest-fsevent (0.2.8)
+      sys-uname
+    autotest-growl (0.2.16)
+    builder (3.0.0)
+    capybara (1.1.2)
+      mime-types (>= 1.16)
+      nokogiri (>= 1.3.3)
+      rack (>= 1.0.0)
+      rack-test (>= 0.5.4)
+      selenium-webdriver (~> 2.0)
+      xpath (~> 0.1.4)
+    childprocess (0.3.2)
+      ffi (~> 1.0.6)
+    coderay (1.0.6)
+    commonwatir (3.0.0)
+    cucumber (1.2.0)
+      builder (>= 2.1.2)
+      diff-lcs (>= 1.1.3)
+      gherkin (~> 2.10.0)
+      json (>= 1.4.6)
+    cuke_puke (0.1.0)
+    cv-user-agent (1.1.0)
+    diff-lcs (1.1.3)
+    domino (0.2.1)
+      capybara (>= 0.4.0)
+    excon (0.14.0)
+    factory_girl (3.3.0)
+      activesupport (>= 3.0.0)
+    ffi (1.0.11)
+    firewatir (1.9.4)
+      commonwatir (>= 1.9.2)
+    gherkin (2.10.0)
+      json (>= 1.4.6)
+    git (1.2.5)
+    haml (3.1.6)
+    heroku (2.26.6)
+      heroku-api (~> 0.2.4)
+      launchy (>= 0.3.2)
+      netrc (~> 0.7.2)
+      rest-client (~> 1.6.1)
+      rubyzip
+    heroku-api (0.2.4)
+      excon (~> 0.14.0)
+    hoe (3.0.6)
+      rake (~> 0.8)
+    i18n (0.6.0)
+    json (1.7.3)
+    launchy (2.1.0)
+      addressable (~> 2.2.6)
+    libwebsocket (0.1.3)
+      addressable
+    lorem (0.1.2)
+    method_source (0.7.1)
+    mime-types (1.18)
+    mocha (0.9.12)
+    multi_json (1.2.0)
+    netrc (0.7.4)
+    nokogiri (1.5.3)
+    pry (0.9.9.6)
+      coderay (~> 1.0.5)
+      method_source (~> 0.7.1)
+      slop (>= 2.4.4, < 3)
+    rack (1.4.1)
+    rack-protection (1.2.0)
+      rack
+    rack-test (0.6.1)
+      rack (>= 1.0)
+    rake (0.9.2.2)
+    rest-client (1.6.7)
+      mime-types (>= 1.16)
+    rspec (2.10.0)
+      rspec-core (~> 2.10.0)
+      rspec-expectations (~> 2.10.0)
+      rspec-mocks (~> 2.10.0)
+    rspec-core (2.10.1)
+    rspec-expectations (2.10.0)
+      diff-lcs (~> 1.1.3)
+    rspec-mocks (2.10.1)
+    rubigen (1.5.8)
+      activesupport (>= 2.3.5, < 3.2.0)
+    rubyzip (0.9.8)
+    s4t-utils (1.0.4)
+      hoe (>= 1.3.0)
+    sass (3.1.19)
+    selenium-webdriver (2.22.2)
+      childprocess (>= 0.2.5)
+      ffi (~> 1.0)
+      libwebsocket (~> 0.1.3)
+      multi_json (~> 1.0)
+      rubyzip
+    shotgun (0.9)
+      rack (>= 1.0)
+    sinatra (1.3.2)
+      rack (~> 1.3, >= 1.3.6)
+      rack-protection (~> 1.2)
+      tilt (~> 1.3, >= 1.3.3)
+    sinatra-activerecord (1.1.0)
+      activerecord (~> 3.0)
+      sinatra (~> 1.0)
+    sinatra-flash (0.3.0)
+      sinatra (>= 1.0.0)
+    slop (2.4.4)
+    sqlite3 (1.3.6)
+    sqlite3-ruby (1.3.3)
+      sqlite3 (>= 1.3.3)
+    sys-uname (0.9.0)
+      ffi (>= 1.0.0)
+    tilt (1.3.3)
+    tzinfo (0.3.33)
+    user-choices (1.1.6.1)
+      builder (>= 2.1.2)
+      s4t-utils (>= 1.0.3)
+      xml-simple (>= 1.0.11)
+    watir-webdriver (0.6.1)
+      selenium-webdriver (>= 2.18.0)
+    webrat (0.7.3)
+      nokogiri (>= 1.2.0)
+      rack (>= 1.0)
+      rack-test (>= 0.5.3)
+    xml-simple (1.1.1)
+    xpath (0.1.4)
+      nokogiri (~> 1.3)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  ZenTest
+  activerecord
+  autotest-fsevent
+  autotest-growl
+  capybara
+  cucumber
+  cuke_puke
+  cv-user-agent
+  domino
+  domino_rspec!
+  factory_girl
+  git
+  haml
+  heroku
+  lorem
+  pry
+  rack-test
+  rspec
+  sass
+  shotgun
+  sinatra
+  sinatra-activerecord
+  sinatra-flash
+  sqlite3-ruby
+  taza!
+  watir-webdriver
+  webrat

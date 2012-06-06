@@ -15,6 +15,7 @@ require 'shoe_site'
 require 'rspec/expectations'
 require 'rack/test'
 require 'webrat'
+require 'pry'
 
 ENV["TAZA_ENV"] ||= 'isolation'
 ENV['BROWSER'] ||= 'chrome'

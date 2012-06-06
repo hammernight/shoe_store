@@ -10,7 +10,7 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'shotgun'
 gem 'lorem'
 gem 'sinatra-flash'
-
+gem 'pry'
 
 group :development do
   gem 'git'

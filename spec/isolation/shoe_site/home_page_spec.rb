@@ -1,45 +1,31 @@
 require 'spec_helper'
 require 'shoe_site'
 
-describe "Home Page should launch" do
 
+
+describe "Home Page should launch" do
+  before(:each) do
+    get "/"
+  end
 
   context "shoe site responses" do
     it "should load the home page" do
-      get '/'
       last_response.should be_ok
     end
 
     it "should have the right title" do
-      get '/'
       last_response.body.should include("<title>Shoe Site:  Welcome to the Shoe Site</title>")
     end
 
   end
 
   context "form functionality" do
-    before(:each) do
-      get "/"
-    end
-
-    xit "should let me submit a month" do
-
-    end
-
     it "should have a form you can post" do
       last_response.body.should have_selector("form", :method => 'post')
     end
 
-    xit "should have a select list with the months of the year" do
-      options = []
-      html = last_response.body
-
-      p options << html.split("<option")
-
-          #do |item|
-      #  options << item
-      #end
-      options.size.should == 12
+    it "should have a select list with the months of the year" do
+      response.should have_selector 'select[name="post[release_month]"]'
     end
 
     it "should submit the form" do

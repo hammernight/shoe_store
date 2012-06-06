@@ -28,7 +28,7 @@ Webrat.configure do |config|
   config.mode = :rack
 end
 
-Capybara.app = DominoRspec::Server
+Capybara.app = Sinatra::Application
 
 RSpec.configure do |config|
   config.include Rack::Test::Methods

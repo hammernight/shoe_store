@@ -1,7 +1,7 @@
 %h2 Welcome to Shoe Site!
 
-%form{:action=>"/results", :method=>'post'}
-  %h3{:id=>'form_heading'} Pre-Order your shoes today
+%form.shoe_search{:action=>"/results", :method=>'post'}
+  %h3.form_heading Pre-Order your shoes today
 
   - unless @message.nil?
     %p #{@message}
@@ -10,7 +10,7 @@
     %dt
       %label{:for => 'release_month'} Select your Pre-Order Month
     %dd
-      %select#release_month{:name=>"post[release_month]"}
+      %select#release_month.month_select{:name=>"post[release_month]"}
         %option{:value => "Select Month"}= "Select Month"
         - @month_names.each do |month|
           %option{:value => month}= month
@@ -24,4 +24,4 @@
   %dl
     %dt
     %dd
-      %input#search_button{:type=>'submit', :value=>'Search'}
+      %input#search_button.button{:type=>'submit', :value=>'Search'}
