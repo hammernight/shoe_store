@@ -1,4 +1,6 @@
 *.log
 *.db
 .sass-cache/
+.idea
+.autotest
 
