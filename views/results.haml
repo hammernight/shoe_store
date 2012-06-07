@@ -4,5 +4,6 @@
   %p= @message
 
 %ul#shoe_list
-  - @shoes.each do |key, value|
-    %li{:id => "#{key}" }= "#{value}"
+  - @shoes.each do |s|
+    %li{:id => "#{s.name}" }= "#{s.name}, #{s.brand}"
+
