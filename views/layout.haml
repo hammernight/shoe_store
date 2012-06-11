@@ -3,6 +3,11 @@
   %meta{'http-equiv' => 'Content-Type', :content => 'text/html'}
   %title== Shoe Site:  #{@title}
 
+  %header
+    %nav
+      %ul.nav
+        - @month_names.each do |month|
+          %li= "#{month.capitalize}"
   %body
     = styled_flash
     = yield

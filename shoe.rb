@@ -26,6 +26,10 @@ configure do
   set :public_folder, "#{File.dirname(__FILE__)}/public"
 end
 
+before do
+  @month_names = Date::MONTHNAMES.compact
+end
+
 class Shoe < ActiveRecord::Base
 
 end
@@ -34,7 +38,7 @@ enable :sessions
 
 get '/' do
   @title = 'Welcome to the Shoe Site'
-  @month_names = Date::MONTHNAMES.compact
+
   @new_shoe = Shoe.first
   haml :index
 end
@@ -50,14 +54,12 @@ post '/results' do
     params[:post].inspect
   end
   @title = "#{params[:post][:release_month]}"
-  @shoes = Shoe.all(:conditions => {
-      :release_month => params[:post][:release_month]
-  })
+  @shoes = Shoe.find(:all,:conditions => { :release_month => params[:post][:release_month] })
   haml :results
 end
 
 get '/shoe/new' do
-   Shoe.new(:name => 'Test Shoe', :release_month => 'January', :description => "blah blah blah", :brand => "Red Shoe" )
+   Shoe.create(:name => 'Test Shoe', :release_month => 'January', :description => "blah blah blah", :brand => "Red Shoe" )
    flash[:notice] = "what"
    redirect '/'
 
