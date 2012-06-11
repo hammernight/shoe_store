@@ -10,9 +10,7 @@ require 'sinatra'
 require 'webrat'
 require 'bundler/setup'
 Bundler.require
-require 'domino_rspec'
 require 'capybara/rspec'
-require File.expand_path("#{File.dirname(__FILE__)}/support/dom/dom.rb")
 
 
 set :environment, :test

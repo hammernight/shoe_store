@@ -11,6 +11,7 @@ gem 'shotgun'
 gem 'lorem'
 gem 'sinatra-flash'
 gem 'pry'
+gem 'racksh'
 
 group :development do
   gem 'git'

@@ -8,12 +8,12 @@
 
   %dl
     %dt
-      %label{:for => 'release_month'} Select your Pre-Order Month
+      %label{:for => 'brand'} Choose a brand
     %dd
-      %select#release_month.month_select{:name=>"post[release_month]"}
-        %option{:value => "Select Month"}= "Select Month"
-        - @month_names.each do |month|
-          %option{:value => month}= month
+      %select#brand.brand_select{:name=>"post[brand]"}
+        %option{:value => "Select Brand"}= "Select Brand"
+        - @brand_names.each do |brand|
+          %option{:value => brand}= brand
   -#%dl
   -#  %dt
   -#    %label{:for => 'promotional_code'} Promotional Code

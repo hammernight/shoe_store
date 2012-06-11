@@ -1,13 +1,19 @@
 !!!
 %head
   %meta{'http-equiv' => 'Content-Type', :content => 'text/html'}
-  %title== Shoe Site:  #{@title}
-
+  %title== Shoe Site: #{@title}
+  %link{:rel => 'stylesheet', :href => '/stylesheet.css'}
+  %div{:id => 'home_link_div'}
+    %a{:href => '/'} Home
   %header
-    %nav
-      %ul.nav
-        - @month_names.each do |month|
-          %li= "#{month.capitalize}"
+    #header_nav
+      %nav
+        %ul
+          - @month_names.each do |month|
+            %li
+              %a{:href => "#{month.downcase}"} #{month.capitalize}
+  %br
+  %br
   %body
     = styled_flash
     = yield
