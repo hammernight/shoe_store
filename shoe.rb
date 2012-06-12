@@ -10,6 +10,7 @@ require 'haml'
 require 'sass'
 require 'yaml'
 require 'user-agent'
+require 'pry'
 
 
 configure do
@@ -43,21 +44,31 @@ end
 
 post '/results' do
 
-  if params[:post][:release_month] == "Select Month"
+  if params[:post][:brand] == "Select Brand"
     #take this out and add achievement
-    flash[:notice] = "Please Select a Valid Month"
+    flash[:notice] = "Please Select a Brand"
     redirect '/'
   else
-    @title = "#{params[:post][:release_month]}"
+    @title = "#{params[:post][:brand]}"
     params[:post].inspect
   end
-  @title = "#{params[:post][:release_month]}"
-  @shoes = Shoe.find(:all, :conditions => {:release_month => params[:post][:release_month]})
+  @title = "#{params[:post][:brand]}"
+  @brand = Brand.find_by_name(params[:post][:brand])
+  @shoes = Shoe.by_brand(@brand)
   haml :results
 end
 
 get '/shoe/new' do
-  Shoe.create(:name => 'Test Shoe', :release_month => 'January', :description => "blah blah blah", :brand => "Red Shoe")
+  #Brand.create name: 'Nine West'
+  #Brand.create name: 'Manolo Blahnik'
+  #Brand.create name: 'Christian Louboutin'
+  #
+  #Shoe.create :name => 'Violators', :description => 'Awesomeness', :brand_id => 1, :release_month => 'January', :image_path => 'shoe1.jpg'
+  #Shoe.create :name => 'Terminators', :description => 'These are awesome', :brand_id => 2, :release_month => 'February', :image_path => 'shoe2.jpg'
+  #Shoe.create :name => 'Shit Kickers', :description => 'Wonky awesome', :brand_id => 3, :release_month => 'January', :image_path => 'shoe3.jpg'
+  #Shoe.create :name => 'Toe Holders', :description => 'Awesomer than you!', :brand_id => 3, :release_month => 'September', :image_path => 'shoe4.jpg'
+
+  #Shoe.create(:name => 'Test Shoe', :release_month => 'January', :description => "blah blah blah", :brand => "Red Shoe")
   flash[:notice] = "what"
   redirect '/'
 
@@ -70,11 +81,18 @@ get '/:month_name' do |month_name|
 end
 
 
-
-
 #models
 class Shoe < ActiveRecord::Base
+  has_one :brand
+
+  module Scopes
+    def by_brand(brand)
+      where(:brand_id => brand.id)
+    end
+  end
+  extend Scopes
 end
 
 class Brand < ActiveRecord::Base
+  has_many :shoes
 end

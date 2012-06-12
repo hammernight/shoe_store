@@ -13,7 +13,7 @@
       %select#brand.brand_select{:name=>"post[brand]"}
         %option{:value => "Select Brand"}= "Select Brand"
         - @brand_names.each do |brand|
-          %option{:value => brand}= brand
+          %option{:value => brand.name}= brand.name
   -#%dl
   -#  %dt
   -#    %label{:for => 'promotional_code'} Promotional Code

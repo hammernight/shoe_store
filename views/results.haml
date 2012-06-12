@@ -5,5 +5,5 @@
 
 %ul#shoe_list
   - @shoes.each do |s|
-    %li{:id => "#{s.name}" }= "#{s.name}, #{s.brand}"
-
+    %li{:id => "#{@brand.name}_#{s.name}" }
+      %p= "#{s.name} => #{s.release_month}, #{s.description}"

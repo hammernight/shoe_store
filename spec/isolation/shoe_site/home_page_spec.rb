@@ -37,7 +37,7 @@ describe "Home Page should launch" do
       click_button "Search"
       visit response.location if response.location
       last_response.body.should have_selector("h2")
-      last_response.body.should include("<h2>January's Shoes'</h2>")
+      last_response.body.should include("<h2>New Releases for Nine West</h2>")
     end
 
     it "should not show the 0 on the results page" do
@@ -48,17 +48,14 @@ describe "Home Page should launch" do
     end
 
     it "should show me an empty list for shoes in july" do
-      select "July"
-      click_button "Search"
-      last_response.body.should include("<h2>New Releases for July</h2>")
-      last_response.body.should include("<ul id='shoe_list'>")
-
+      click_link "July"
+      last_response.body.should include("<h1>July's Shoes</h1>")
     end
 
     it "should show the flash message when no month is selected" do
       click_button "Search"
       visit response.location if response.location
-      last_response.body.should include("<div class='flash notice'>Please Select a Valid Month</div>")
+      last_response.body.should include("<div class='flash notice'>Please Select a Brand</div>")
     end
 
     context "navigation links" do
