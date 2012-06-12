@@ -18,12 +18,14 @@ describe "Home Page should launch" do
 
   end
 
+
   context "form functionality" do
+    context "basic form elements"
     it "should have a form you can post" do
       last_response.body.should have_selector("form", :method => 'post')
     end
 
-    it "should have a select list with the months of the year" do
+    it "should have a select list with the brands" do
       response.should have_selector 'select[name="post[brand]"]'
     end
 
@@ -31,14 +33,34 @@ describe "Home Page should launch" do
       click_button "Search"
       visit response.location if response.location
     end
+  end
 
-    it "should show the month name on the results page" do
+  context "form submission and results" do
+    it "should show the brand name on the results page" do
       select "Nine West"
       click_button "Search"
-      visit response.location if response.location
       last_response.body.should have_selector("h2")
       last_response.body.should include("<h2>New Releases for Nine West</h2>")
     end
+
+    it "should show the shoe name" do
+      select "Nine West"
+      click_button "Search"
+      last_response.body.should include("<li id='Nine West_Violators'")
+    end
+
+    it "should show the shoe release month" do
+      select "Nine West"
+      click_button "Search"
+      last_response.body.should include("January")
+    end
+
+    it "should show the shoe description" do
+      select "Nine West"
+      click_button "Search"
+      last_response.body.should include("Awesomeness")
+    end
+
 
     it "should not show the 0 on the results page" do
       click_button "Search"
@@ -52,18 +74,19 @@ describe "Home Page should launch" do
       last_response.body.should include("<h1>July's Shoes</h1>")
     end
 
-    it "should show the flash message when no month is selected" do
+    it "should show the flash message when no brand is selected" do
       click_button "Search"
       visit response.location if response.location
       last_response.body.should include("<div class='flash notice'>Please Select a Brand</div>")
     end
-
-    context "navigation links" do
-      it "should land on month page when month header link is clicked" do
-        click_link "January"
-        last_response.body.should include("<title>Shoe Site: January's Shoes</title>")
-      end
-    end
-
   end
+
+
+  context "navigation links" do
+    it "should land on month page when month header link is clicked" do
+      click_link "January"
+      last_response.body.should include("<title>Shoe Site: January's Shoes</title>")
+    end
+  end
+
 end
