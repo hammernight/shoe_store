@@ -13,6 +13,9 @@ Bundler.require
 require 'capybara/rspec'
 
 
+ENV["TAZA_ENV"] ||= 'isolation'
+ENV['BROWSER'] ||= 'firefox'
+
 set :environment, :test
 
 TAZA_ROOT=File.join(File.dirname(__FILE__), '../')

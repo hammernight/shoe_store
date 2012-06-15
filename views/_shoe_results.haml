@@ -1,0 +1,4 @@
+%ul#shoe_list
+  - @shoes.each do |shoe|
+    %li{:id => "#{to_id shoe.brand_name}_#{to_id shoe.name}"}
+      = haml :_shoe_result, :locals => {:shoe => shoe}

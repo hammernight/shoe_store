@@ -1,26 +1,13 @@
 %h2 Welcome to Shoe Site!
 
-%form.shoe_search{:action=>"/results", :method=>'post'}
+%form.shoe_search{:action=>"/brand", :method=>'post'}
   %h3.form_heading Pre-Order your shoes today
-
-  - unless @message.nil?
-    %p #{@message}
-
   %dl
     %dt
       %label{:for => 'brand'} Choose a brand
     %dd
-      %select#brand.brand_select{:name=>"post[brand]"}
+      %select#brand.brand_select{:name=>"brand"}
         %option{:value => "Select Brand"}= "Select Brand"
         - @brand_names.each do |brand|
           %option{:value => brand.name}= brand.name
-  -#%dl
-  -#  %dt
-  -#    %label{:for => 'promotional_code'} Promotional Code
-  -#  %dd
-  -#    %input#promotional_code{:type => 'text', :maxlength => '255', :name => 'promotional_code'}/
-
-  %dl
-    %dt
-    %dd
       %input#search_button.button{:type=>'submit', :value=>'Search'}

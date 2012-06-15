@@ -15,9 +15,7 @@ describe "Home Page should launch" do
     it "should have the right title" do
       last_response.body.should include("<title>Shoe Site: Welcome to the Shoe Site</title>")
     end
-
   end
-
 
   context "form functionality" do
     context "basic form elements"
@@ -46,7 +44,7 @@ describe "Home Page should launch" do
     it "should show the shoe name" do
       select "Nine West"
       click_button "Search"
-      last_response.body.should include("<li id='Nine West_Violators'")
+      last_response.body.should include("<li id='nine_west_violators'")
     end
 
     it "should show the shoe release month" do

@@ -1,8 +1,29 @@
-Brand.create name: 'Nine West'
-Brand.create name: 'Manolo Blahnik'
-Brand.create name: 'Christian Louboutin'
+require 'open-uri'
+require 'nokogiri'
+require 'chronic'
 
-Shoe.create :name => 'Violators', :description => 'Awesomeness', :brand_id => 1, :release_month => 'January', :image_path => 'shoe1.jpg'
-Shoe.create :name => 'Terminators', :description => 'These are awesome', :brand_id => 2, :release_month => 'February', :image_path => 'shoe2.jpg'
-Shoe.create :name => 'Shit Kickers', :description => 'Wonky awesome', :brand_id => 3, :release_month => 'January', :image_path => 'shoe3.jpg'
-Shoe.create :name => 'Toe Holders', :description => 'Awesomer than you!', :brand_id => 3, :release_month => 'September', :image_path => 'shoe4.jpg'
+# brands
+doc = Nokogiri::XML(open('http://shop.nordstrom.com/c/womens-brands?section=shoes&origin=topnav'))
+doc.xpath("//div[@id='shoes']//a").each do |brand|
+  Brand.create :name => brand.text
+end
+
+brands = Brand.all
+
+# shoes
+doc = Nokogiri::XML(open('http://rss.nordstrom.com/rss.axd?keyword=women%27s%20shoes&sort=price&sortreverse=1&origin=sricon'))
+Nokogiri::XML(doc.xpath('//item/description').each_with_index do |description, n|
+  description_text = Nokogiri::XML(description.text)
+  name = description_text.xpath("//a[@class='rssTitleLink1']").text
+  brand_id = -1
+  brands.each do |brand|
+    brand_id = brand.id if name.include? brand.name
+  end
+  price = description_text.xpath("//span[@class='rssPrice1']").last.text.split('Price: ').last
+  image_url = nil
+  image_url = description_text.xpath("//img").first['src'] unless n == 11 # the 11th item should not have an image
+  description2 = description_text.xpath("//span[@class='rssDescription2']").text
+  month = (n+1) % 12
+  month = 1 if month == 0 # December should not have any shoes
+  Shoe.create :name => name, :price => price, :image_path => image_url, :description => description2, :release_month => Date::MONTHNAMES[month], :brand_id => brand_id
+end)

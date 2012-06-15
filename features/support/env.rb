@@ -18,14 +18,14 @@ require 'webrat'
 require 'pry'
 
 ENV["TAZA_ENV"] ||= 'isolation'
-ENV['BROWSER'] ||= 'chrome'
+ENV['BROWSER'] ||= 'firefox'
 
 
 Webrat.configure do |config|
   config.mode = :rack
 end
 
-class Shoe < Sinatra::Base
+class ShoeStore < Sinatra::Base
   include Rack::Test::Methods
   include Webrat::Methods
   include Webrat::Matchers
@@ -38,4 +38,4 @@ class Shoe < Sinatra::Base
 end
 
 
-World { Shoe.new }
+World { ShoeStore.new }
