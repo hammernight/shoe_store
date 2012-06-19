@@ -1,7 +1,7 @@
-app_file = File.expand_path('../../shoe.rb', __FILE__)
-require app_file
+#app_file = File.expand_path('../../shoe.rb', __FILE__)
+#require app_file
+require_relative '../shoe.rb'
 
-ENV['TAZA_ENV'] = "isolation" if ENV['TAZA_ENV'].nil?
 require 'rubygems'
 require 'rspec'
 require 'mocha'
@@ -9,12 +9,17 @@ require 'rack/test'
 require 'sinatra'
 require 'webrat'
 require 'bundler/setup'
-Bundler.require
+require 'capybara'
 require 'capybara/rspec'
+Bundler.require
 
-
+ENV['TAZA_ENV'] = "isolation" if ENV['TAZA_ENV'].nil?
 ENV["TAZA_ENV"] ||= 'isolation'
-ENV['BROWSER'] ||= 'firefox'
+ENV['BROWSER'] ||= 'chrome'
+
+def app
+  Sinatra::Application
+end
 
 set :environment, :test
 
@@ -29,18 +34,14 @@ Webrat.configure do |config|
   config.mode = :rack
 end
 
-Capybara.app = Sinatra::Application
+Capybara.app = app
 
 RSpec.configure do |config|
   config.include Rack::Test::Methods
-  config.include Webrat::Methods
-  config.include Webrat::Matchers
+  #config.include Webrat::Methods
+  #config.include Webrat::Matchers
+  config.include Capybara::DSL
   config.mock_with :mocha
   config.treat_symbols_as_metadata_keys_with_true_values = true
-  config.run_all_when_everything_filtered = true
-  config.filter_run :focus
 end
 
-def app
-  Sinatra::Application
-end

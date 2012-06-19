@@ -9,6 +9,7 @@ require 'sass'
 require 'yaml'
 require 'user-agent'
 require 'pry'
+require 'uri'
 
 ActiveRecord::Base.establish_connection(
     :adapter => "sqlite3",
@@ -73,7 +74,7 @@ post '/brand' do
     flash[:notice] = "Please Select a Brand"
     redirect '/'
   else
-    redirect "/brands/#{brand}"
+    redirect "/brands/#{URI.escape(brand)}"
   end
 end
 
