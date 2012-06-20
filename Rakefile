@@ -1,9 +1,7 @@
-#Generated at 2012-04-04 16:08:17 -0400
 require 'rubygems'
 require 'bundler/setup'
 require 'taza/tasks'
 require 'active_record'
-
 
 require File.expand_path('../shoe.rb', __FILE__)
 require 'sinatra/activerecord/rake'
@@ -16,6 +14,7 @@ namespace :db do
         :adapter => "sqlite3",
         :database => "shoes.db"
     )
+
     seed_file = File.join(File.dirname(__FILE__), 'db', 'seed.rb')
     system("racksh < #{seed_file}")
   end

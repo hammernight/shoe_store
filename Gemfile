@@ -12,6 +12,9 @@ gem 'lorem'
 gem 'sinatra-flash'
 gem 'pry'
 gem 'racksh'
+gem 'feedzirra'
+gem 'nokogiri'
+
 
 group :development do
   gem 'git'
@@ -33,3 +36,7 @@ group :test do
   gem 'capybara'
 
 end
+
+
+# price: doc.xpath('//item').first.children[3].to_s.split('Price: ').last.split('.00').first
+# doc.xpath('.//img/@src').first.value

@@ -148,7 +148,20 @@ caption, tbody, tfoot, thead, tr, th, td
 *:focus
   :outline 0
 
-// end reset css
+input[type='text'], textarea
+  :padding 4px
+  :color #aaa
+  :border thin solid #ccc
+
+select
+  :padding 4px
+
+input[type='submit']
+  :padding 3px
+  :cursor pointer
+
+input[type='text']:hover, input[type='text']:focus, textarea:hover, textarea:focus
+  :background-color #ffffe0
 
 #header_nav, #home_link_div
   :display block
@@ -163,3 +176,47 @@ caption, tbody, tfoot, thead, tr, th, td
   :font-weight bold
   &:last-child
     margin-right: 0px
+
+.title
+  :padding-bottom 10px
+
+.shoe_result
+  :border thin solid #ccc
+  :padding 10px
+  :margin-bottom 10px
+
+.shoe_result_label
+  :font-weight bold
+  :text-align right
+  :padding-right 5px
+  :width 104px
+
+.notice
+  :color #ff4500
+  :font-weight bold
+  :padding-bottom 10px
+
+.left
+  :float left
+
+.right
+  :float right
+
+.shoe_result_row
+  :display block
+  :padding-top 10px
+
+#new_issue_form
+  :margin-left 10px
+
+#new_issue_form form .left, #new_issue_form form .right
+  :border none
+
+.new_issue_row
+  :padding-top 10px
+
+.new_issue_row *
+  :vertical-align middle
+
+.new_issue_row label
+  :padding-right 10px

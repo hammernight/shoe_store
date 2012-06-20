@@ -1,0 +1,28 @@
+.title
+  %h2 New Issue
+
+%form#new_issue_form{:method => 'post', :action => '/issue'}
+  %table
+    %tr.new_issue_row
+      %td.right
+        %label{:for => 'issue_title'} Title:
+      %td
+        %input#issue_title{:type => 'text', :name => 'issue_title'}
+    %tr.new_issue_row
+      %td.right
+        %label{:for => 'issue_description', :name => 'issue_description'} Description:
+      %td
+        %textarea#issue_description{:name => 'issue_description', :rows => 10, :cols => 80}
+    %tr.new_issue_row
+      %td.right
+        %label{:for => 'issue_title'} Severity:
+      %td
+        %select#issue_severity{:name => 'issue_severity'}
+          %options
+            %option{:value => 'Low'} Low
+            %option{:value => 'Medium'} Medium
+            %option{:value => 'High'} High
+            %option{:value => 'Critical'} Critical
+    %tr.new_issue_row
+      %td{:colspan => 2}
+        %input#issue_submit{:type => 'submit'}

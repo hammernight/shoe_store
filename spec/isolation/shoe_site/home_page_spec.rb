@@ -2,91 +2,87 @@ require 'spec_helper'
 require 'shoe_site'
 
 
-describe "Home Page should launch" do
-  before(:each) do
-    get "/"
-  end
-
-  context "shoe site responses" do
-    it "should load the home page" do
-      last_response.should be_ok
-    end
-
-    it "should have the right title" do
-      last_response.body.should include("<title>Shoe Site: Welcome to the Shoe Site</title>")
-    end
-
-  end
-
-
+describe "Home Page should launch", :type => :request do
   context "form functionality" do
-    context "basic form elements"
-    it "should have a form you can post" do
-      last_response.body.should have_selector("form", :method => 'post')
+    context "basic requests" do
+
+      before(:each) do
+        get "/"
+      end
+
+      it "should have a form you can post" do
+        last_response.status.should be(200)
+        last_response.body.should have_selector("form", :method => 'post')
+      end
     end
+
+  end
+
+  context "form submission and results" do
+    before(:each) do
+      visit "/"
+    end
+
 
     it "should have a select list with the brands" do
-      response.should have_selector 'select[name="post[brand]"]'
+      page.body.should have_selector 'select[name="brand"]'
     end
 
     it "should submit the form" do
       click_button "Search"
-      visit response.location if response.location
+      page.body.should include('<div class="flash notice">Please Select a Brand</div>')
     end
-  end
 
-  context "form submission and results" do
     it "should show the brand name on the results page" do
       select "Nine West"
       click_button "Search"
-      last_response.body.should have_selector("h2")
-      last_response.body.should include("<h2>New Releases for Nine West</h2>")
+      page.body.should include('<div class="title">')
+      page.body.should include("<h2>Nine West's Shoes</h2>")
     end
 
     it "should show the shoe name" do
-      select "Nine West"
+      select "Gucci"
       click_button "Search"
-      last_response.body.should include("<li id='Nine West_Violators'")
+      page.body.should include('<a href="/brands/Gucci">')
     end
 
     it "should show the shoe release month" do
       select "Nine West"
       click_button "Search"
-      last_response.body.should include("January")
+      page.body.should include("January")
     end
 
     it "should show the shoe description" do
-      select "Nine West"
+      select "Gucci"
       click_button "Search"
-      last_response.body.should include("Awesomeness")
+      page.body.should include('<td class="shoe_result_label">Description</td>')
+      page.body.should include("Brilliant crystals adorn a satin pump with a partially concealed platform and flirty peep toe.")
     end
 
 
     it "should not show the 0 on the results page" do
       click_button "Search"
-      visit response.location if response.location
-      last_response.body.should have_selector("h2")
-      last_response.body.should_not include("<h2>New Releases for 0</h2>")
+      page.body.should have_selector("h2")
+      page.body.should_not include("<h2>New Releases for 0</h2>")
     end
 
-    it "should show me an empty list for shoes in july" do
-      click_link "July"
-      last_response.body.should include("<h1>July's Shoes</h1>")
+    it "should show me an empty list for shoes in December" do
+      click_link "December"
+      page.body.should include("<h2>December's Shoes</h2>")
     end
 
     it "should show the flash message when no brand is selected" do
       click_button "Search"
-      visit response.location if response.location
-      last_response.body.should include("<div class='flash notice'>Please Select a Brand</div>")
+      page.body.should include('<div class="flash notice">Please Select a Brand</div>')
+    end
+
+
+
+    context "navigation links" do
+      it "should land on month page when month header link is clicked" do
+        click_link "January"
+        page.body.should include("<title>Shoe Site: January's Shoes</title>")
+      end
     end
   end
-
-
-  context "navigation links" do
-    it "should land on month page when month header link is clicked" do
-      click_link "January"
-      last_response.body.should include("<title>Shoe Site: January's Shoes</title>")
-    end
-  end
-
 end

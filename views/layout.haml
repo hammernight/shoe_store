@@ -1,19 +1,46 @@
 !!!
-%head
-  %meta{'http-equiv' => 'Content-Type', :content => 'text/html'}
-  %title== Shoe Site: #{@title}
-  %link{:rel => 'stylesheet', :href => '/stylesheet.css'}
-  %div{:id => 'home_link_div'}
-    %a{:href => '/'} Home
-  %header
-    #header_nav
-      %nav
-        %ul
-          - @month_names.each do |month|
-            %li
-              %a{:href => "#{month.downcase}"} #{month.capitalize}
-  %br
-  %br
+%html
+  %head
+    %meta{'http-equiv' => 'Content-Type', :content => 'text/html'}
+    %title== Shoe Site: #{@title}
+    %link{:rel => 'stylesheet', :href => '/stylesheet.css'}
   %body
+    %div{:id => 'home_link_div'}
+      %a{:href => '/'} Home
+    %header#header
+      #header_nav
+        %nav
+          %ul
+            - @month_names.each do |month|
+              %li
+                %a{:href => "/months/#{month.downcase}"} #{month.capitalize}
+        %br
+        %a{:href => '/shoes'} All Shoes
+        %br
+        %br
+      %form#remind_email_form{:method => 'post', :action => '/remind'}
+        .left
+          %label Remind me of new shoes
+          %input{:type => 'text', :name => 'email', :placeholder => 'Email Address', :id => 'remind_email_input'}
+          %input{:type => 'submit'}
+      %form#promo_code_form{:method => 'post', :action => '/promo'}
+        .right
+          %label Promotional Code
+          %input{:type => 'text', :name => 'promo_code', :id => 'promo_code_input'}
+          %input{:type => 'submit'}
+    %br
+    %br
+    %br
+    %br
+    .left
+      %a{:href => '/issues/new'} Report An Issue
+    .right
+      %a{:href => '/definition'} Problem Definition
+    %br
+    %br
     = styled_flash
+    - unless @message.nil?
+      %p.message= @message
+    %hr
+    %br
     = yield
