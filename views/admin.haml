@@ -1,0 +1,14 @@
+!!!
+%html
+  %head
+    %meta{'http-equiv' => 'Content-Type', :content => 'text/html'}
+    %title== Shoe Site: #{@title}
+    %link{:rel => 'stylesheet', :href => '/stylesheet.css'}
+
+  %body#admin
+    %h1
+      %a{:href=>"/"} Admin
+
+    #wrapper
+      #content
+        = yield

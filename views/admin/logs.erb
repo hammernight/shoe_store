@@ -1,0 +1,2 @@
+<% @requests.each do |req| %><% data = YAML::load(req.data.gsub /: !ruby\/object:(.*) /, ': ') %><%= data.env["HTTP_X_REAL_IP"]%> - <%= data.host %> [<%= req.created_at.strftime('%d/%b/%Y:%H:%M:%S %z') %>] "<%= data.request_method %> <%= data.path_info %> <%= data.env['HTTP_VERSION'] %>" - - "<%= data.referer %>" "<%= data.user_agent %>" "<%= data.params.map {|k,v| "#{k}=#{v}"}.join("&") %>"
+<% end %>
