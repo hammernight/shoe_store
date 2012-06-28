@@ -1,0 +1,37 @@
+- @title = 'Stats'
+
+%link{:rel => 'stylesheet', :href => 'stats.css'}/
+
+#vitals
+  %h3 Vitals
+  %dl
+    %dt Number of requests
+    %dd= @requests.size
+
+    %dt First request
+    %dd= @requests.first.created_at
+
+    %dt Last request
+    %dd= @requests.last.created_at
+
+#achievements
+  %h3 Achievements
+
+  %p Achievements unlocked by this candidate:
+
+  %dl
+    - for i in @achievements.keys
+      %dt== #{i.name.underscore.titleize} (x#{@achievements[i].size})
+      %dd= i.description
+
+  %p Missing so far:
+
+  %dl
+    - for i in (ACHIEVEMENTS - @achievements.keys)
+      %dt== #{i.name.underscore.titleize}
+      %dd= i.description
+
+#usage
+  %h3 Usage
+
+  %p GRAPH GOES HERE
