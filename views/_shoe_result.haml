@@ -2,33 +2,33 @@
   %table
     %tr.shoe_result_row
       %td.shoe_result_label Brand
-      %td.shoe_result_value
+      %td.shoe_result_value.shoe_brand
         %a{:href => "/brands/#{shoe.brand_name}"}
           = shoe.brand_name
     %tr.shoe_result_row
       %td.shoe_result_label Name
-      %td.shoe_result_value
+      %td.shoe_result_value.shoe_name
         = shoe.name
     %tr.shoe_result_row
       %td.shoe_result_label Price
-      %td.shoe_result_value
+      %td.shoe_result_value.shoe_price
         = shoe.price
     %tr.shoe_result_row
       %td.shoe_result_label Description
-      %td.shoe_result_value
+      %td.shoe_result_value.shoe_description
         = shoe.description
     %tr.shoe_result_row
       %td.shoe_result_label Release Month
-      %td.shoe_result_value
+      %td.shoe_result_value.shoe_release_month
         %a{:href => "/months/#{shoe.release_month.downcase}"}
           = shoe.release_month
     %tr.shoe_result_row
-      %td{:colspan => 2}
+      %td.shoe_image{:colspan => 2}
         %img{:src => "#{shoe.image_path}", :alt => ''}
     - if Date::MONTHNAMES.index(shoe.release_month) > Time.new.month
       %tr.shoe_result_row
         %td{:colspan => 2}
-          %form{:method => 'post', :action => '/available', :id => 'notification_email_form'}
+          %form.notification_email_form{:method => 'post', :action => '/available'}
             %label Notify me when this shoe is available
-            %input{:type => 'text', :name => 'email', :placeholder => 'Email Address', :id => 'notification_email_input'}
-            %input{:type => 'submit'}
+            %input.notification_email_input{:type => 'text', :name => 'email', :placeholder => 'Email Address'}
+            %input.notification_email_submit{:type => 'submit'}

@@ -1,5 +1,5 @@
 require 'spec_helper'
-require 'shoe_site'
+require 'shoe_store'
 
 
 describe "Home Page should launch", :type => :request do
@@ -81,7 +81,7 @@ describe "Home Page should launch", :type => :request do
     context "navigation links" do
       it "should land on month page when month header link is clicked" do
         click_link "January"
-        page.body.should include("<title>Shoe Site: January's Shoes</title>")
+        page.body.should include("<title>Shoe Store: January's Shoes</title>")
       end
     end
   end

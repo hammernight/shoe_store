@@ -1,5 +1,5 @@
 require 'spec_helper'
-require 'shoe_site'
+require 'shoe_store'
 
 describe "page requests" do
   before(:each) do
@@ -7,13 +7,13 @@ describe "page requests" do
   end
 
 
-  context "shoe site responses" do
+  context "shoe store responses" do
     it "should load the home page" do
       last_response.should be_ok
     end
 
     it "should have the right title" do
-      last_response.body.should include("<title>Shoe Site: Welcome to the Shoe Site</title>")
+      last_response.body.should include("<title>Shoe Store: Welcome to the Shoe Store</title>")
     end
   end
 end

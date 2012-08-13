@@ -1,2 +1,7 @@
-require File.expand_path(File.dirname(__FILE__)) + '/shoe.rb'
-run Sinatra::Application
+require './shoe_store.rb'
+
+Dir["./routes/*.rb"].each {|file| require file }
+Dir["./models/*.rb"].each {|file| require file }
+Dir["./helpers/*.rb"].each {|file| require file }
+
+run ShoeStore

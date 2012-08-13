@@ -1,5 +1,5 @@
 Before do
-  @site = ShoeSite.new
+  @site = ShoeStore.new
 end
 
 After do

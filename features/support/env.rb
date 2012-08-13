@@ -1,4 +1,4 @@
-app_file = File.expand_path('../../../shoe.rb', __FILE__)
+app_file = File.expand_path('../../../shoe_store.rb', __FILE__)
 require app_file
 Sinatra::Application.app_file = app_file
 
@@ -11,31 +11,20 @@ require 'taza'
 require 'watir-webdriver'
 require 'watir-webdriver/wait'
 require 'active_record'
-require 'shoe_site'
+require 'shoe_store_site'
 require 'rspec/expectations'
 require 'rack/test'
 require 'webrat'
 require 'pry'
+require 'rake'
 
 ENV["TAZA_ENV"] ||= 'isolation'
 ENV['BROWSER'] ||= 'firefox'
 
-
 Webrat.configure do |config|
-  config.mode = :rack
+  config.mode = :sinatra
 end
 
-class ShoeStore < Sinatra::Base
-  include Rack::Test::Methods
-  include Webrat::Methods
-  include Webrat::Matchers
-
-  Webrat::Methods.delegate_to_session :response_code, :response_body
-
-  def app
-    Sinatra::Application
-  end
+World do
+  Webrat::SinatraSession.new
 end
-
-
-World { ShoeStore.new }

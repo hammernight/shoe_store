@@ -3,7 +3,7 @@ require 'bundler/setup'
 require 'taza/tasks'
 require 'active_record'
 
-require File.expand_path('../shoe.rb', __FILE__)
+require File.expand_path('../shoe_store.rb', __FILE__)
 require 'sinatra/activerecord/rake'
 
 namespace :db do

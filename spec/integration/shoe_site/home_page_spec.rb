@@ -1,20 +1,20 @@
 require 'spec_helper'
-require 'shoe_site'
+require 'shoe_store'
 
 describe "Home Page should launch" do
   context "actual page items" do
-    let(:shoe_site) { ShoeSite.new }
+    let(:shoe_store) { ShoeStore.new }
 
     before(:each) do
-      shoe_site.home_page
+      shoe_store.home_page
     end
 
     after(:each) do
-      shoe_site.close
+      shoe_store.close
     end
 
     it "should have the right page title when loaded in the browser" do
-      shoe_site.browser.title.should == "Shoe Site: Welcome to the Shoe Site"
+      shoe_store.browser.title.should == "Shoe Store: Welcome to the Shoe Store"
     end
   end
 

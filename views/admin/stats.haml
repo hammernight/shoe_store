@@ -27,7 +27,7 @@
   %p Missing so far:
 
   %dl
-    - for i in (ACHIEVEMENTS - @achievements.keys)
+    - for i in (Achievement::ACHIEVEMENTS - @achievements.keys)
       %dt== #{i.name.underscore.titleize}
       %dd= i.description
 

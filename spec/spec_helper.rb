@@ -1,6 +1,6 @@
-#app_file = File.expand_path('../../shoe.rb', __FILE__)
+#app_file = File.expand_path('../../shoe_store.rb', __FILE__)
 #require app_file
-require_relative '../shoe.rb'
+require_relative '../shoe_store.rb'
 
 require 'rubygems'
 require 'rspec'

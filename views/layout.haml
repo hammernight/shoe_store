@@ -2,7 +2,7 @@
 %html
   %head
     %meta{'http-equiv' => 'Content-Type', :content => 'text/html'}
-    %title== Shoe Site: #{@title}
+    %title== Shoe Store: #{@title}
     %link{:rel => 'stylesheet', :href => '/stylesheet.css'}
   %body
     %div{:id => 'home_link_div'}
@@ -34,6 +34,8 @@
     %br
     .left
       %a{:href => '/issues/new'} Report An Issue
+      &nbsp;&nbsp;|&nbsp;&nbsp;
+      %a{:href => '/issues'} Issues
     .right
       %a{:href => '/definition'} Problem Definition
     %br

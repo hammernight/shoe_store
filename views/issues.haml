@@ -1,12 +1,15 @@
 .title
   %h2 Open Issues
 
-#issues_list
+%table.issues_table
+  %tr.issues_header_row
+    %th
+    %th Title
+    %th Severity
+    %th Description
   - @issues.each do |issue|
-    .issue
-      .issue_title
-        = issue.title
-      .issue_severity
-        = issue.severity
-      .issue_description
-        = issue.description
+    %tr.issue_row{:id => "issue_#{issue.id}"}
+      %td.issue_id= issue.id
+      %td.issue_title= issue.title
+      %td.issue_severity= issue.severity
+      %td.issue_description= issue.description
