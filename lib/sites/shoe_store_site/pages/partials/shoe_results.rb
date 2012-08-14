@@ -1,7 +1,7 @@
 require 'rubygems'
 require 'taza/page'
 
-module ShoeStore
+module ShoeStoreSite
   class ShoeResults < ::Taza::Page
 
     element(:shoe) { browser.divs(:class => 'shoe_result') }

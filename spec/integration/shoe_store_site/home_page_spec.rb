@@ -1,9 +1,9 @@
 require 'spec_helper'
-require 'shoe_store'
+require 'shoe_store_site'
 
 describe "Home Page should launch" do
   context "actual page items" do
-    let(:shoe_store) { ShoeStore.new }
+    let(:shoe_store) { ShoeStoreSite.new }
 
     before(:each) do
       shoe_store.home_page

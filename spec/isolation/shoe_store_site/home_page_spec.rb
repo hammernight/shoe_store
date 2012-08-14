@@ -1,17 +1,12 @@
 require 'spec_helper'
-require 'shoe_store'
-
 
 describe "Home Page should launch", :type => :request do
   context "form functionality" do
     context "basic requests" do
 
-      before(:each) do
-        get "/"
-      end
-
       it "should have a form you can post" do
-        last_response.status.should be(200)
+        get "/"
+        last_response.status.should eq(200)
         last_response.body.should have_selector("form", :method => 'post')
       end
     end
@@ -30,6 +25,7 @@ describe "Home Page should launch", :type => :request do
 
     it "should submit the form" do
       click_button "Search"
+      binding.pry
       page.body.should include('<div class="flash notice">Please Select a Brand</div>')
     end
 

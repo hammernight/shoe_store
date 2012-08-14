@@ -12,13 +12,17 @@ require 'pry'
 require 'uri'
 
 class ShoeStore < Sinatra::Application
+
+configure do
   set :haml, {:format => :html5}
   enable :sessions
+end
 
   ActiveRecord::Base.establish_connection(
       :adapter => "sqlite3",
       :database => "shoes.db"
   )
+end
 
   before do
     unless request.path_info.match /^\/(admin|stylesheet\.css)/
@@ -51,7 +55,6 @@ class ShoeStore < Sinatra::Application
       name.gsub(' ', '').underscore.downcase
     end
   end
-end
 
 private
 

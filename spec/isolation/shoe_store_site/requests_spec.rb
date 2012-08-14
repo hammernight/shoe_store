@@ -1,5 +1,5 @@
 require 'spec_helper'
-require 'shoe_store'
+
 
 describe "page requests" do
   before(:each) do
