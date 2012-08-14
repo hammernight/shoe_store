@@ -26,7 +26,7 @@ group :test do
 	gem 'cucumber'
 	gem 'rspec'
 	gem 'watir-webdriver'
-	gem 'taza', :git => 'https://github.com/hammernight/taza.git'
+	gem 'taza'
 	gem 'rack-test', :require => 'rack/test'
 	gem 'webrat'
 	gem 'ZenTest'
