@@ -11,10 +11,11 @@ gem 'shotgun'
 gem 'lorem'
 gem 'sinatra-flash'
 gem 'pry'
+gem 'pry-nav'
 gem 'racksh'
 gem 'feedzirra'
 gem 'nokogiri'
-
+gem 'chronic'
 
 group :development do
   gem 'git'

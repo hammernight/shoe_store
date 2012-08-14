@@ -44,6 +44,7 @@ GEM
       xpath (~> 0.1.4)
     childprocess (0.3.2)
       ffi (~> 1.0.6)
+    chronic (0.7.0)
     coderay (1.0.6)
     commonwatir (3.0.0)
     cucumber (1.2.0)
@@ -104,6 +105,8 @@ GEM
       coderay (~> 1.0.5)
       method_source (~> 0.7.1)
       slop (>= 2.4.4, < 3)
+    pry-nav (0.2.1)
+      pry (~> 0.9.9)
     rack (1.4.1)
     rack-protection (1.2.0)
       rack
@@ -180,6 +183,7 @@ DEPENDENCIES
   autotest-fsevent
   autotest-growl
   capybara
+  chronic
   cucumber
   cuke_puke
   cv-user-agent
@@ -191,6 +195,7 @@ DEPENDENCIES
   lorem
   nokogiri
   pry
+  pry-nav
   rack-test
   racksh
   rspec

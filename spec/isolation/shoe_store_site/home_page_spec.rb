@@ -25,7 +25,6 @@ describe "Home Page should launch", :type => :request do
 
     it "should submit the form" do
       click_button "Search"
-      binding.pry
       page.body.should include('<div class="flash notice">Please Select a Brand</div>')
     end
 
