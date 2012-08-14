@@ -3,4 +3,5 @@
 .sass-cache/
 .idea
 .autotest
-
+.bundle
+.rvmrc
