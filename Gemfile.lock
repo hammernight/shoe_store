@@ -101,6 +101,7 @@ GEM
     multi_json (1.2.0)
     netrc (0.7.4)
     nokogiri (1.5.3)
+    pg (0.14.0)
     pry (0.9.9.6)
       coderay (~> 1.0.5)
       method_source (~> 0.7.1)
@@ -154,9 +155,6 @@ GEM
     sinatra-flash (0.3.0)
       sinatra (>= 1.0.0)
     slop (2.4.4)
-    sqlite3 (1.3.6)
-    sqlite3-ruby (1.3.3)
-      sqlite3 (>= 1.3.3)
     sys-uname (0.9.0)
       ffi (>= 1.0.0)
     tilt (1.3.3)
@@ -194,6 +192,7 @@ DEPENDENCIES
   heroku
   lorem
   nokogiri
+  pg
   pry
   pry-nav
   rack-test
@@ -204,7 +203,6 @@ DEPENDENCIES
   sinatra
   sinatra-activerecord
   sinatra-flash
-  sqlite3-ruby
   taza!
   watir-webdriver
   webrat
