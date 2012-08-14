@@ -16,6 +16,7 @@ gem 'feedzirra'
 gem 'nokogiri'
 gem 'pg'
 gem 'chronic'
+gem 'thin'
 
 group :development do
 	gem 'git'
