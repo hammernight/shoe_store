@@ -17,7 +17,7 @@ class ShoeStore < Sinatra::Application
 		set :haml, {:format => :html5}
 		enable :sessions
 
-		db = URI.parse(ENV['HEROKU_POSTGRESQL_TEAL_URL'] || 'postgres://localhost/shoe_store')
+		db = URI.parse(ENV['DATABASE_URL'] || 'postgres://localhost/shoe_store')
 
 		ActiveRecord::Base.establish_connection(
 				:adapter => db.scheme == 'postgres' ? 'postgresql' : db.scheme,
