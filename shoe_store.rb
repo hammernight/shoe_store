@@ -18,14 +18,6 @@ class ShoeStore < Sinatra::Application
 		enable :sessions
 	end
 
-	configure :development, :test do
-		ActiveRecord::Base.establish_connection(
-				:adapter => 'sqlite3',
-				:database => 'shoes.db'
-		)
-	end
-
-	configure :production do
 		p "configuring database: #{ENV['DATABASE_URL']}"
 		db = URI.parse(ENV['DATABASE_URL'] || 'postgres://localhost/shoe_store')
 
@@ -37,7 +29,7 @@ class ShoeStore < Sinatra::Application
 				:database => db.path[1..-1],
 				:encoding => 'utf8'
 		)
-	end
+
 end
 
 before do
