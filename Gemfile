@@ -17,10 +17,10 @@ gem 'nokogiri'
 gem 'pg'
 gem 'chronic'
 gem 'thin'
+gem 'heroku'
 
 group :development do
 	gem 'git'
-	gem 'heroku'
 end
 
 group :test do
