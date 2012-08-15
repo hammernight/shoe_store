@@ -16,7 +16,16 @@ class ShoeStore < Sinatra::Application
 	configure do
 		set :haml, {:format => :html5}
 		enable :sessions
+	end
 
+	configure :development, :test do
+		ActiveRecord::Base.establish_connection(
+				:adapter => 'sqlite3',
+				:database => 'shoes.db'
+		)
+	end
+
+	configure :production do
 		db = URI.parse(ENV['DATABASE_URL'] || 'postgres://localhost/shoe_store')
 
 		ActiveRecord::Base.establish_connection(

@@ -14,10 +14,13 @@ gem 'pry-nav'
 gem 'racksh'
 gem 'feedzirra'
 gem 'nokogiri'
-gem 'pg'
 gem 'chronic'
 gem 'thin'
 gem 'heroku'
+
+group :development, :test do
+	gem 'sqlite3'
+end
 
 group :development do
 	gem 'git'
@@ -38,6 +41,9 @@ group :test do
 	gem 'capybara'
 end
 
+group :production do
+	gem 'pg'
+end
 
 # price: doc.xpath('//item').first.children[3].to_s.split('Price: ').last.split('.00').first
 # doc.xpath('.//img/@src').first.value
