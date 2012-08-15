@@ -3,7 +3,6 @@ source :rubygems
 gem 'sinatra'
 gem 'haml'
 gem 'sass'
-#gem 'activerecord'
 gem 'sinatra-activerecord', :require => 'sinatra/activerecord'
 gem 'cv-user-agent'
 gem 'shotgun'
@@ -15,7 +14,6 @@ gem 'racksh'
 gem 'feedzirra'
 gem 'nokogiri'
 gem 'chronic'
-gem 'thin'
 gem 'heroku'
 
 group :development, :test do
@@ -44,6 +42,3 @@ end
 group :production do
 	gem 'pg'
 end
-
-# price: doc.xpath('//item').first.children[3].to_s.split('Price: ').last.split('.00').first
-# doc.xpath('.//img/@src').first.value

@@ -5,3 +5,4 @@
 .autotest
 .bundle
 .rvmrc
+config/database.yml
