@@ -3,6 +3,7 @@ source :rubygems
 gem 'sinatra'
 gem 'haml'
 gem 'sass'
+gem 'activerecord' , '~> 3.0.9'
 gem 'sinatra-activerecord'
 gem 'cv-user-agent'
 gem 'shotgun'

@@ -1,5 +1,6 @@
 require 'rubygems'
 require 'bundler/setup'
+require 'sinatra/activerecord/rake'
 ##require 'taza/tasks'
 #require 'active_record'
 #
