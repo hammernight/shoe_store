@@ -1,7 +1,7 @@
 require 'rubygems'
 require 'bundler/setup'
 require 'sinatra'
-require 'sinatra/activerecord'
+require 'active_record'
 require 'sinatra/flash'
 require 'active_support/all'
 require 'haml'

@@ -3,7 +3,7 @@ source :rubygems
 gem 'sinatra'
 gem 'haml'
 gem 'sass'
-gem 'sinatra-activerecord', :require => 'sinatra/activerecord'
+gem 'sinatra-activerecord'
 gem 'cv-user-agent'
 gem 'shotgun'
 gem 'lorem'
