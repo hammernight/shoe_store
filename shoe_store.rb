@@ -30,7 +30,7 @@ class ShoeStore < Sinatra::Application
 		db = URI.parse(ENV['DATABASE_URL'] || 'postgres://localhost/shoe_store')
 
 		ActiveRecord::Base.establish_connection(
-				:adapter => 'postgres',
+				:adapter => 'postgresql',
 				:host => db.host,
 				:username => db.user,
 				:password => db.password,
