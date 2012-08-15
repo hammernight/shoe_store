@@ -1,0 +1,5 @@
+---
+production:
+  adapter: postgresql
+  host: ec2-107-20-179-213.compute-1.amazonaws.com
+  database: dftf421lc10u2s
