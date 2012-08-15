@@ -26,6 +26,7 @@ class ShoeStore < Sinatra::Application
 	end
 
 	configure :production do
+		p "configuring database: #{ENV['DATABASE_URL']}"
 		db = URI.parse(ENV['DATABASE_URL'] || 'postgres://localhost/shoe_store')
 
 		ActiveRecord::Base.establish_connection(
