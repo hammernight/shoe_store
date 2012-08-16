@@ -6,3 +6,5 @@
 .bundle
 .rvmrc
 config/database.yml
+artifacts
+.gems

@@ -3,7 +3,8 @@ source :rubygems
 gem 'sinatra'
 gem 'haml'
 gem 'sass'
-gem 'sinatra-activerecord'
+gem 'activerecord'
+#gem 'sinatra-activerecord'
 gem 'cv-user-agent'
 gem 'shotgun'
 gem 'lorem'
@@ -15,6 +16,7 @@ gem 'feedzirra'
 gem 'nokogiri'
 gem 'chronic'
 gem 'heroku'
+gem 'thin'
 
 group :development, :test do
 	gem 'sqlite3'

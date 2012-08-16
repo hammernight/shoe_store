@@ -1,8 +1,8 @@
 require 'rubygems'
 require 'bundler/setup'
 require 'sinatra'
-#require 'active_record'
-require 'sinatra/activerecord'
+require 'active_record'
+#require 'sinatra/activerecord'
 require 'sinatra/flash'
 require 'active_support/all'
 require 'haml'
@@ -19,8 +19,15 @@ class ShoeStore < Sinatra::Application
 		enable :sessions
 	end
 
-		p "configuring database: #{ENV['DATABASE_URL']}"
-		db = URI.parse(ENV['DATABASE_URL'] || 'postgres://localhost/shoe_store')
+	configure :development, :test do
+		ActiveRecord::Base.establish_connection(
+				:adapter => 'sqlite3',
+				:database => 'shoes.db'
+		)
+	end
+
+	configure :production do
+		db = URI.parse(ENV['DATABASE_URL'] || 'postgresql://localhost/shoe_store')
 
 		ActiveRecord::Base.establish_connection(
 				:adapter => 'postgresql',
@@ -30,7 +37,7 @@ class ShoeStore < Sinatra::Application
 				:database => db.path[1..-1],
 				:encoding => 'utf8'
 		)
-
+	end
 end
 
 before do
