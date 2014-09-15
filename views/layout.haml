@@ -3,21 +3,22 @@
   %head
     %meta{'http-equiv' => 'Content-Type', :content => 'text/html'}
     %title== Shoe Store: #{@title}
+    %link{:rel => 'stylesheet', :href => '/css/journal.bootstrap.min.css'}
     %link{:rel => 'stylesheet', :href => '/stylesheet.css'}
   %body
-    %div{:id => 'home_link_div'}
-      %a{:href => '/'} Home
+    %div.navbar.navbar-default
+      %div.navbar-header{:id => 'home_link_div'}
+        %button.navbar-toggle{type: 'button',data: { toggle: 'collapse', target: '.navbar-responsive-collapse' } }
+        %a.navbar-brand{:href => '/'} Home
     %header#header
-      #header_nav
-        %nav
-          %ul
+      #header_nav.navbar.navbar-inverse
+        %nav.navbar-collapse.collapse.navbar-inverse-collapse
+          %ul.nav.navbar-nav
             - @month_names.each do |month|
               %li
                 %a{:href => "/months/#{month.downcase}"} #{month.capitalize}
-        %br
-        %a{:href => '/shoes'} All Shoes
-        %br
-        %br
+            %li
+              %a{:href => '/shoes'} All Shoes
       %form#remind_email_form{:method => 'post', :action => '/remind'}
         .left
           %label Remind me of new shoes
