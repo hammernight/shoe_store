@@ -21,8 +21,8 @@
               %a{:href => '/shoes'} All Shoes
       %form#remind_email_form{:method => 'post', :action => '/remind'}
         .left
-          %label Remind me of new shoes
-          %input{:type => 'text', :name => 'email', :placeholder => 'Email Address', :id => 'remind_email_input'}
+          %label{ for: 'remind_email_input' } Remind me of new shoes
+          %input#remind_email_input{:type => 'text', :name => 'email', :placeholder => 'Email Address'}
           %input{:type => 'submit'}
       %form#promo_code_form{:method => 'post', :action => '/promo'}
         .right
