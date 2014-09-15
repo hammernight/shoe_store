@@ -1,4 +1,4 @@
-source :rubygems
+source 'https://rubygems.org' 
 
 gem 'sinatra'
 gem 'haml'
@@ -33,10 +33,6 @@ group :test do
 	gem 'taza'
 	gem 'rack-test', :require => 'rack/test'
 	gem 'webrat'
-	gem 'ZenTest'
-	gem 'autotest-fsevent'
-	gem 'autotest-growl'
-	gem 'cuke_puke'
 	gem 'factory_girl'
 	gem 'capybara'
 end
