@@ -10,7 +10,7 @@
       %div.navbar-header{:id => 'home_link_div'}
         %button.navbar-toggle{type: 'button',data: { toggle: 'collapse', target: '.navbar-responsive-collapse' } }
         %a.navbar-brand{:href => '/'} Home
-    %header#header
+    %header#header.container-fluid
       #header_nav.navbar.navbar-inverse
         %nav.navbar-collapse.collapse.navbar-inverse-collapse
           %ul.nav.navbar-nav
@@ -19,31 +19,29 @@
                 %a{:href => "/months/#{month.downcase}"} #{month.capitalize}
             %li
               %a{:href => '/shoes'} All Shoes
-      %form#remind_email_form{:method => 'post', :action => '/remind'}
-        .left
+      .col-md-6
+        %form#remind_email_form{:method => 'post', :action => '/remind'}
           %label{ for: 'remind_email_input' } Remind me of new shoes
           %input#remind_email_input{:type => 'text', :name => 'email', :placeholder => 'Email Address'}
           %input{:type => 'submit'}
-      %form#promo_code_form{:method => 'post', :action => '/promo'}
-        .right
-          %label Promotional Code
-          %input{:type => 'text', :name => 'promo_code', :id => 'promo_code_input'}
+      .col-md-6.text-right
+        %form#promo_code_form{:method => 'post', :action => '/promo'}
+          %label{ for: 'promo_code_input' } Promotional Code
+          %input#promo_code_input{:type => 'text', :name => 'promo_code'}
           %input{:type => 'submit'}
-    %br
-    %br
-    %br
-    %br
-    .left
-      %a{:href => '/issues/new'} Report An Issue
-      &nbsp;&nbsp;|&nbsp;&nbsp;
-      %a{:href => '/issues'} Issues
-    .right
-      %a{:href => '/definition'} Problem Definition
-    %br
-    %br
-    = styled_flash
-    - unless @message.nil?
-      %p.message= @message
+      .col-md-12
+        .col-md-6
+          %a{:href => '/issues/new'} Report An Issue
+          |
+          %a{:href => '/issues'} Issues
+        .col-md-6.text-right
+          %a.text-right{:href => '/definition'} Problem Definition
+      .col-md-4.col-md-offset-4
+        = styled_flash
+        - unless @message.nil?
+          %button.close{type: 'button', data: { dismiss: 'alert' }} ×
+          %strong.message= @message
     %hr
-    %br
     = yield
+
+    %footer
