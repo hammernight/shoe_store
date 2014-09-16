@@ -17,7 +17,7 @@ class ShoeStore < Sinatra::Application
     redirect '/'
   end
 
-  get '/brand.json' do
+  get '/brands.json' do
     content_type :json
     brands = Brand.all
     brands.to_json
