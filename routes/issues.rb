@@ -5,6 +5,12 @@ class ShoeStore < Sinatra::Application
     haml :issues
   end
 
+  get '/issues.json' do
+    content_type :json
+    issues = Issue.all
+    issues.to_json
+  end
+
   get '/issues/new' do
     @issue = Issue.new
     haml :issue
