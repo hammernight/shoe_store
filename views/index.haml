@@ -1,13 +1,16 @@
-%h2 Welcome to Shoe Store!
+.container-fluid.text-center
+  .row
+    %h2 Welcome to Shoe Store!
 
-%form.shoe_search{:action=>"/brand", :method=>'post'}
-  %h3.form_heading Pre-Order your shoes today
-  %dl
-    %dt
-      %label{:for => 'brand'} Choose a brand
-    %dd
-      %select#brand.brand_select{:name=>"brand"}
-        %option{:value => "Select Brand"}= "Select Brand"
-        - @brand_names.each do |brand|
-          %option{:value => brand.name}= brand.name
-      %input#search_button.button{:type=>'submit', :value=>'Search'}
+    %form.shoe_search.form-horizontal{:action=>"/brand", :method=>'post'}
+      %legend.form_heading Pre-Order your shoes today
+      %dl.form-group
+        %dt
+          %label.col-md-4.control-label{:for => 'brand'} Choose a brand
+        %dd.col-md-4
+          %select#brand.brand_select.form-control{:name => 'brand'}
+            %option{:value => 'Select Brand' }= 'Select Brand'
+            - @brand_names.each do |brand|
+              %option{:value => brand.name}= brand.name
+        %dd.col-md-4.text-left
+          %input#search_button.button.btn.btn-primary{:type=>'submit', :value=>'Search'}
