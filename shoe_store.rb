@@ -18,6 +18,8 @@ require_relative 'models/issue'
 require_relative 'models/promo_code'
 require_relative 'models/shoe'
 
+require 'json'
+
 class ShoeStore < Sinatra::Application
 
 	configure do

@@ -6,9 +6,21 @@ class ShoeStore < Sinatra::Application
     haml :shoes
   end
 
+  get '/shoes.json' do
+    content_type :json
+    shoes = Shoe.all
+    shoes.to_json
+  end
+
   get '/shoe/new' do
     flash[:notice] = "what"
     redirect '/'
+  end
+
+  get '/brand.json' do
+    content_type :json
+    brands = Brand.all
+    brands.to_json
   end
 
   post '/brand' do
