@@ -23,12 +23,12 @@
         %form#remind_email_form{:method => 'post', :action => '/remind'}
           %label{ for: 'remind_email_input' } Remind me of new shoes
           %input#remind_email_input{:type => 'text', :name => 'email', :placeholder => 'Email Address'}
-          %input{:type => 'submit'}
+          %input{:type => 'submit', :id => 'remind_email_submit'}
       .col-md-6.text-right
         %form#promo_code_form{:method => 'post', :action => '/promo'}
           %label{ for: 'promo_code_input' } Promotional Code
           %input#promo_code_input{:type => 'text', :name => 'promo_code'}
-          %input{:type => 'submit'}
+          %input{:type => 'submit', :id => 'promo_code_submit'}
       .col-md-12
         .col-md-6
           %a{:href => '/issues/new'} Report An Issue
