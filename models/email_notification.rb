@@ -9,7 +9,7 @@ class EmailNotification
 
   def validation_message
     if self.validation_status == :valid
-      "#{@email_address} Valid email address"
+      "Thanks! We will notify you of our new shoes at this email: #{@email_address}"
     elsif self.validation_status == :missing_domain
       "Invalid email missing domain. Ex. name@example.com"
     else
