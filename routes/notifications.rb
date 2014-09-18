@@ -1,17 +1,24 @@
 class ShoeStore < Sinatra::Application
 
   post '/remind' do
-    if params[:email].nil? or params[:email].eql? 'Email Address'
-      flash[:notice] = 'Please enter an email address to be reminded of our new shoes'
-    elsif params[:email].include? "<"
-      achieve! EmailCrossSiteScripting
-      haml :error
+    if params[:email].nil? or params[:email].eql? '' or params[:email].empty?
+      flash[:alert_danger] = 'Please enter an email address'
     elsif params[:email].include? "'"
-      achieve! EmailSqlInjection
+      achieve! PromoCodeSqlInjection
+      haml :error
+    elsif params[:email].include? "<"
+      achieve! PromoCodeCrossSiteScripting
+      haml :error
+    elsif params[:email].chars.to_a.size > 255
+      achieve! HackedPromoCodeSize
+      haml :error
+    elsif params[:email].chars.to_a.size >= 100
+      achieve! PromoCodeSize
       haml :error
     else
       # TODO do something with this email address
-      flash[:notice] = "Thanks!  We will notify you of our new shoes at this email: #{params[:email]}"
+      @email = EmailNotification.new(params[:email])
+      @email.valid? ? flash[:flash_success] = @email.validation_message : flash[:alert_danger] = @email.validation_message
     end
     redirect request.referrer
   end

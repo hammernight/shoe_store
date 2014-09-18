@@ -3,10 +3,6 @@ class ShoeStore < Sinatra::Application
   post '/promo' do
     if params[:promo_code].nil? or params[:promo_code].eql? ''
       flash[:alert_danger] = 'Please enter a promotional code'
-    elsif params[:promo_code].empty?
-      achieve! UsedPromocode
-      @promo_code_message = PromoCode.promo_code_message
-      @results = true
     elsif params[:promo_code].include? "'"
       achieve! PromoCodeSqlInjection
       haml :error
@@ -21,7 +17,8 @@ class ShoeStore < Sinatra::Application
       haml :error
     else
       # TODO do something with this email address
-      flash[:warn] = "The code: #{params[:promo_code]} is not a valid promotional code"
+      promo_code = PromoCode.new(params[:promo_code])
+      promo_code.valid? ? flash[:flash_success] = promo_code.validation_message : flash[:alert_danger] = promo_code.validation_message
     end
     redirect request.referrer
   end
