@@ -1,4 +1,7 @@
 require_relative '../shoe_store.rb'
+require_relative '../models/promo_code.rb'
+require_relative "../models/email_notification"
+require_relative "../models/request"
 require 'rubygems'
 require 'rspec'
 require 'mocha'

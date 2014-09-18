@@ -76,7 +76,7 @@ describe "Validate Promo Codes" do
       subject = PromoCode.new(invalid_code)
       subject.validation_status.should be :not_valid_for_today
     end
-    
+
   end
 
 end
