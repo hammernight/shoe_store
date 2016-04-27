@@ -1,9 +1,9 @@
-require "spec_helper"
+require 'spec_helper'
 
-describe "Validate Promo Codes" do
-  context "valid promotional codes" do
+describe 'Validate Promo Codes' do
+  context 'valid promotional codes' do
 
-    first_five_digits = "44444"
+    first_five_digits = '44444'
     middle_three_digits = DateTime.now.cweek.to_s.rjust(3,'0')
     last_two_digits = DateTime.now.day.to_s.rjust(2, '0')
     code = first_five_digits + middle_three_digits + last_two_digits
