@@ -1,19 +1,16 @@
-source 'https://rubygems.org' 
+source 'https://rubygems.org'
+
 
 gem 'sinatra'
 gem 'haml'
 gem 'sass'
 gem 'activerecord'
-#gem 'sinatra-activerecord'
+gem 'sinatra-activerecord'
 gem 'cv-user-agent'
 gem 'shotgun'
 gem 'lorem'
 gem 'sinatra-flash'
-gem 'pry'
-gem 'pry-nav'
 gem 'racksh'
-gem 'feedzirra'
-gem 'nokogiri'
 gem 'chronic'
 gem 'heroku'
 gem 'thin'
@@ -23,6 +20,8 @@ group :development, :test do
 end
 
 group :development do
+  gem 'pry'
+  gem 'pry-nav'
 	gem 'git'
 end
 
