@@ -1,31 +1,43 @@
 require 'spec_helper'
 
-describe "Home Page should launch", :type => :request do
-  context "form functionality" do
-    context "basic requests" do
-
-      it "should have a form you can post" do
-        get "/"
-        last_response.status.should eq(200)
-        last_response.body.should have_selector("form", :method => 'post')
+describe ShoeStore, :type => :request do
+  context 'form functionality' do
+    context 'basic requests' do
+      before(:all) do
+        get '/'
       end
-    end
 
+        it { expect(last_response).to be_ok }
+
+    end
   end
+end
 
-  context "form submission and results" do
+describe 'Shoe Store' do
+  context 'form submission and results' do
     before(:each) do
-      visit "/"
+
     end
 
-
-    it "should have a select list with the brands" do
-      page.body.should have_selector 'select[name="brand"]'
+    it 'has the remind me form' do
+      visit '/'
+      expect(page).to have_selector(:css, 'form#remind_email_form')
     end
 
-    it "should submit the form" do
-      click_button "Search"
-      page.body.should include('<div class="flash notice">Please Select a Brand</div>')
+    it 'has the promo code form' do
+      visit '/'
+      expect(page).to have_selector(:css, 'form#promo_code_form')
+    end
+
+    it 'should have a select list with the brands' do
+      visit '/'
+      expect(page).to have_selector 'select[name="brand"]'
+    end
+
+    it 'should submit the form' do
+      visit 'http://127.0.0.1:9393'
+      click_button 'Search'
+      expect(find('div#flash div.flash.notice').text).to eql 'Please Select a Brand'
     end
 
     it "should show the brand name on the results page" do

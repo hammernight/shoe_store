@@ -31,14 +31,17 @@ Dir[File.join(TAZA_ROOT, 'spec/support/**/*.rb')].each { |f| require f }
 
 Webrat.configure do |config|
   config.mode = :rack
+  config.open_error_files = false
 end
 
-Capybara.app = app
+Capybara.app = Sinatra::Application.new
 
 RSpec.configure do |config|
+  include Webrat::Methods
+  include Webrat::Matchers
   config.include Rack::Test::Methods
   config.include Capybara::DSL
   config.mock_with :mocha
   config.expect_with(:rspec) { |c| c.syntax = [:should, :expect] }
-  end
+end
 
