@@ -10,32 +10,27 @@ describe "Validate Promo Codes" do
 
     let(:subject) { PromoCode.new(code) }
 
-    it "should not be nil" do
-      subject.should_not be_nil
+    it { expect(subject).to_not be_nil }
+    it { expect(subject.code.length).to eql 10 }
+
+    it 'it is numeric' do
+      expect(subject.is_numeric?).to be_truthy
     end
 
-    it "should be 10 digits" do
-      subject.code.length.should == 10
+    it 'total of first five digits is 20' do
+      expect(subject.total_of_first_five_is_twenty?).to be_truthy
     end
 
-    it "should contain only numbers" do
-      subject.is_numeric?.should be_true
+    it 'middle 3 digits are current commercial week' do
+      expect(subject.middle_three_is_commercial_week?).to be_truthy
     end
 
-    it "total of first five digits should equal 20" do
-      subject.total_of_first_five_is_twenty?.should be_true
+    it 'last 2 digits are current day of month' do
+      expect(subject.last_two_is_today?).to be_truthy
     end
 
-    it "middle 3 digits are current commercial week" do
-      subject.middle_three_is_commercial_week?.should be_true
-    end
-
-    it "last 2 digits are current day of month" do
-      subject.last_two_is_today?.should be_true
-    end
-
-    it "validation status should be :valid" do
-      subject.validation_status.should be :valid
+    it 'validation status should be :valid' do
+      expect(subject.validation_status).to be :valid
     end
 
   end
