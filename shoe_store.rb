@@ -52,7 +52,7 @@ end
 before do
 	unless request.path_info.match /^\/(admin|stylesheet\.css)/
 
-		previous = Request.last(:order => :created_at)
+		previous = Request.order(:created_at).last
 		@request_model = Request.create! :data => request.to_yaml, :ip_address => (request.env["HTTP_X_REAL_IP"] || request.ip)
 
 		if previous && previous.ip_address != (request.env["HTTP_X_REAL_IP"] || request.ip)
@@ -88,5 +88,5 @@ def achieve!(key)
 end
 
 def sort_shoes!
-	@shoes.sort! { |s1, s2| Date::MONTHNAMES.index(s1.release_month) <=> Date::MONTHNAMES.index(s2.release_month) }
+	@shoes.to_a.sort! { |s1, s2| Date::MONTHNAMES.index(s1.release_month) <=> Date::MONTHNAMES.index(s2.release_month) }
 end
