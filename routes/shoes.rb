@@ -44,7 +44,7 @@ class ShoeStore < Sinatra::Application
   get '/months/:month_name' do |month_name|
     @month_name = month_name.capitalize
     @title = "#@month_name's Shoes"
-    @shoes = Shoe.find :all, :conditions => {:release_month => @month_name}
+    @shoes = Shoe.where(release_month: @month_name)
     sort_shoes!
     haml :month_view
   end
