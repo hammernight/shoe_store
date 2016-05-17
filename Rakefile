@@ -28,3 +28,15 @@ require 'sinatra/activerecord/rake'
 ##                 "--format p",
 ##                 "--format FailingExamplesFormatter --out #{file_hole}/failing_examples.txt"]
 ##end
+
+ENV['RACK_ENV'] ||= 'development'
+require 'rake'
+require 'sinatra/activerecord/rake'
+
+Dir.glob('lib/tasks/*.rake').each { |r| load r}
+
+namespace :db do
+  task :load_config do
+    require './shoe_store'
+  end
+end

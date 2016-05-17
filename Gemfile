@@ -14,6 +14,7 @@ gem 'racksh'
 gem 'chronic'
 gem 'heroku'
 gem 'thin'
+gem 'mysql2'
 
 group :development, :test do
 	gem 'sqlite3'
@@ -34,8 +35,4 @@ group :test do
 	gem 'webrat'
 	gem 'factory_girl'
 	gem 'capybara'
-end
-
-group :production do
-	gem 'pg'
 end

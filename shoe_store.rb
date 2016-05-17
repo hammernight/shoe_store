@@ -2,7 +2,7 @@ require 'rubygems'
 require 'bundler/setup'
 require 'sinatra'
 require 'active_record'
-#require 'sinatra/activerecord'
+require 'sinatra/activerecord'
 require 'sinatra/flash'
 require 'active_support/all'
 require 'haml'
@@ -18,6 +18,7 @@ require_relative 'models/issue'
 require_relative 'models/promo_code'
 require_relative 'models/shoe'
 
+require 'pry'
 require 'json'
 
 class ShoeStore < Sinatra::Application
@@ -26,27 +27,29 @@ class ShoeStore < Sinatra::Application
 		set :haml, { :format => :html5 }
     set :protection, :except => [:json_csrf]
 		enable :sessions
+
+    set :database_file, './config/database.yml'
 	end
 
-	configure :development, :test do
-		ActiveRecord::Base.establish_connection(
-				:adapter => 'sqlite3',
-				:database => 'shoes.db'
-		)
-	end
-
-	configure :production do
-		db = URI.parse(ENV['DATABASE_URL'] || 'postgresql://localhost/shoe_store')
-
-		ActiveRecord::Base.establish_connection(
-				:adapter => 'postgresql',
-				:host => db.host,
-				:username => db.user,
-				:password => db.password,
-				:database => db.path[1..-1],
-				:encoding => 'utf8'
-		)
-	end
+	# configure :development, :test do
+	# 	ActiveRecord::Base.establish_connection(
+	# 			:adapter => 'sqlite3',
+	# 			:database => 'shoes.db'
+	# 	)
+	# end
+  #
+	# configure :production do
+	# 	db = URI.parse(ENV['DATABASE_URL'] || 'postgresql://localhost/shoe_store')
+  #
+	# 	ActiveRecord::Base.establish_connection(
+	# 			:adapter => 'postgresql',
+	# 			:host => db.host,
+	# 			:username => db.user,
+	# 			:password => db.password,
+	# 			:database => db.path[1..-1],
+	# 			:encoding => 'utf8'
+	# 	)
+	# end
 end
 
 before do
