@@ -1,19 +1,16 @@
 require 'spec_helper'
 
 
-describe "page requests" do
+describe 'page requests' do
   before(:each) do
-    get "/"
+    get '/'
   end
 
+  it { expect(last_response).to be_ok }
 
-  context "shoe store responses" do
-    it "should load the home page" do
-      last_response.should be_ok
-    end
-
-    it "should have the right title" do
-      last_response.body.should include("<title>Shoe Store: Welcome to the Shoe Store</title>")
+  context 'shoe store responses' do
+    it 'should have the right title' do
+      expect(last_response.body).to include('<title>Shoe Store: Welcome to the Shoe Store</title>')
     end
   end
 end
