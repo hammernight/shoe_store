@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20120628014546) do
   end
 
   create_table "requests", force: :cascade do |t|
-    t.text     "data",       limit: 65535
+    t.text     "data",       limit: 4294967295
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "ip_address", limit: 65535
