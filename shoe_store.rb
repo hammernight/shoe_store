@@ -16,6 +16,7 @@ require_relative 'models/brand'
 require_relative 'models/issue'
 require_relative 'models/promo_code'
 require_relative 'models/shoe'
+require 'pg'
 
 require 'json'
 

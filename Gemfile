@@ -15,7 +15,7 @@ gem 'racksh'
 gem 'chronic'
 gem 'heroku'
 gem 'thin'
-gem 'mysql2'
+gem 'pg'
 
 
 group :development, :test do
