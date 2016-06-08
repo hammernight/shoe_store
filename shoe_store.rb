@@ -9,7 +9,6 @@ require 'haml'
 require 'sass'
 require 'yaml'
 require 'user-agent'
-require 'pry'
 require 'uri'
 require_relative 'models/achievement'
 require_relative 'models/request'
@@ -18,7 +17,6 @@ require_relative 'models/issue'
 require_relative 'models/promo_code'
 require_relative 'models/shoe'
 
-require 'pry'
 require 'json'
 
 class ShoeStore < Sinatra::Application
