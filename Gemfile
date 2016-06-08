@@ -15,6 +15,7 @@ gem 'chronic'
 gem 'heroku'
 gem 'thin'
 gem 'pg'
+gem 'rake'
 
 
 group :development, :test do

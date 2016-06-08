@@ -203,6 +203,7 @@ DEPENDENCIES
   pry-nav
   rack-test
   racksh
+  rake
   rspec
   sass
   shotgun
