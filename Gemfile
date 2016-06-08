@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '2.3.0'
 
 
 gem 'sinatra'
@@ -15,6 +16,7 @@ gem 'chronic'
 gem 'heroku'
 gem 'thin'
 gem 'mysql2'
+
 
 group :development, :test do
 	gem 'sqlite3'
