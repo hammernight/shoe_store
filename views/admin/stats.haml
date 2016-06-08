@@ -17,14 +17,14 @@
 #achievements
   %h3 Achievements
 
-  %p Achievements unlocked by this candidate:
+  %h4 Achievements unlocked by this candidate:
 
   %dl
     - for i in @achievements.keys
       %dt== #{i.name.underscore.titleize} (x#{@achievements[i].size})
       %dd= i.description
 
-  %p Missing so far:
+  %h4 Missing so far:
 
   %dl
     - for i in (Achievement::ACHIEVEMENTS - @achievements.keys)
