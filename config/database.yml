@@ -6,14 +6,13 @@ development:
   database: ":memory:"
   verbosity: quiet
 
-test:
-  adapter: sqlite3
-  encoding: utf8
+codeship:
+  adapter: postgresql
+  encoding: unicode
+  database: shoe_store
   pool: 5
-  timeout: 5000
-  database: ":memory:"
-  verbosity: quiet
-
-
+  username: <%= ENV['PG_USER'] %>
+  password: <%= ENV['PG_PASSWORD'] %>
+  
 production:
-  url: <% ENV['DATABASE_URL'] %>
+  url: <%= ENV['DATABASE_URL'] %>
