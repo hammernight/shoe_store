@@ -1,19 +1,22 @@
 source 'https://rubygems.org'
 
+ruby "2.5.7"
 
 gem 'sinatra'
 gem 'haml'
 gem 'sass'
-gem 'activerecord'
-gem 'sinatra-activerecord'
+gem 'activerecord', '4.2.8'
+gem 'sinatra-activerecord', '2.0.9'
 gem 'cv-user-agent'
 gem 'shotgun'
 gem 'lorem'
 gem 'sinatra-flash'
 gem 'racksh'
 gem 'chronic'
-gem 'heroku'
 gem 'thin'
+gem 'pg', '0.15'
+gem 'rake'
+
 
 group :development, :test do
 	gem 'sqlite3'
@@ -34,8 +37,4 @@ group :test do
 	gem 'webrat'
 	gem 'factory_girl'
 	gem 'capybara'
-end
-
-group :production do
-	gem 'pg'
 end

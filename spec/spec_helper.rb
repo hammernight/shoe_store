@@ -43,5 +43,9 @@ RSpec.configure do |config|
   config.include Capybara::DSL
   config.mock_with :mocha
   config.expect_with(:rspec) { |c| c.syntax = [:should, :expect] }
+
+  config.before(:suite) do
+    load './db/schema.rb'
+  end
 end
 
