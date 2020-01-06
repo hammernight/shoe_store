@@ -5,7 +5,7 @@ ruby "2.5.7"
 gem 'sinatra'
 gem 'haml'
 gem 'sass'
-gem 'activerecord', '4.2.6'
+gem 'activerecord', '4.2.8'
 gem 'sinatra-activerecord', '2.0.9'
 gem 'cv-user-agent'
 gem 'shotgun'
