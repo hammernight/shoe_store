@@ -14,7 +14,7 @@ gem 'sinatra-flash'
 gem 'racksh'
 gem 'chronic'
 gem 'thin'
-gem 'pg'
+gem 'pg', '0.15'
 gem 'rake'
 
 

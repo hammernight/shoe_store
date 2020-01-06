@@ -75,7 +75,7 @@ GEM
     multi_test (0.1.2)
     nokogiri (1.10.7)
       mini_portile2 (~> 2.4.0)
-    pg (1.2.1)
+    pg (0.15.0)
     pry (0.12.2)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
@@ -180,7 +180,7 @@ DEPENDENCIES
   git
   haml
   lorem
-  pg
+  pg (= 0.15)
   pry
   pry-nav
   rack-test
